@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "laser")
+set(laser_MAINTAINER "pi <pi@todo.todo>")
+set(laser_DEPRECATED "")
+set(laser_VERSION "0.0.0")
+set(laser_BUILD_DEPENDS "roscpp" "sensor_msgs")
+set(laser_RUN_DEPENDS "roscpp" "sensor_msgs")
+set(laser_BUILDTOOL_DEPENDS "catkin")

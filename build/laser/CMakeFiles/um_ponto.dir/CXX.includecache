@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Desktop/thiago_ros/src/laser/umponto.cpp
+ros/ros.h
+-
+sensor_msgs/LaserScan.h
+-
+iomanip
+-
+

@@ -1,0 +1,8 @@
+prefix=/home/pi/Desktop/thiago_ros/install
+
+Name: laser
+Description: Description of laser
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/pi/Desktop/thiago_ros/install/lib 
+Requires: 

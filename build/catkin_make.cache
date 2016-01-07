@@ -1,0 +1,2 @@
+laser:robot_setup_tf
+-DCATKIN_DEVEL_PREFIX=/home/pi/Desktop/thiago_ros/devel -DCMAKE_INSTALL_PREFIX=/home/pi/Desktop/thiago_ros/install -G Unix Makefiles
