@@ -1,0 +1,56 @@
+### Antes da Callback
+
+x = 0
+resolution = 0.3515625 # Laser resolution
+pose = [0,0,0] # Initial position [x,y,theta]
+
+def estimatePOSE(pontos1,pontos2,pontos3,pontos4,pontos5,pontos6,ponto7,ponto8):
+        h = 0 # horario
+        ah = 0 # anti-horario
+	for i in range(1,len(pontos1)):
+		if (abs(pontos1(i-1)-pontos4(i))<=0.02):
+			ah = ah+1
+		elif (abs(pontos4(i-1)-pontos1(i))<=0.02):
+			h = h+1
+		if (abs(pontos2(i-1)-pontos5(i))<=0.02):
+			ah = ah+1
+		elif (abs(pontos5(i-1)-ponto2(i))<=0.02):
+			h = h+1
+		if (abs(pontos3(i-1)-pontos6(i))<=0.02):
+			ah = ah+1
+		elif (abs(pontos6(i-1)-pontos3(i))<=0.02):
+			h = h+1
+	chanceH = h/27
+	chanceAH = ah/27
+	if (chanceH > 0.8):
+		pose[2] = math.radians(pose[2]-resolution)
+	elif (chanceAH > 0.8):
+		pose[2] = math.radians(pose[2]+resolution)
+	else:
+		dist = ponto8 - ponto7
+		pose[1] = pose[1]+dist*cos(pose[2])
+		pose[0] = pose[0]+dist*sin(pose[2])
+	return [pose[0],pose[1],math.degrees(pose[2])]
+
+### Dentro da Callback
+
+global x # Para poder mudar valor de x dentro da função
+x = x+1
+if x = 1:           # Primeira vez que a callback é chamada
+	pontos_atuais1 = ranges[50:60]
+	pontos_atuais2 = ranges[380:390]
+	pontos_atuais3 = ranges[700:710]
+	pontoCentralAtual = ranges[384]
+	return
+else:               # Salva os pontos passados  (obs: colocar precisao de duas casas decimais)
+	pontos_passados1 = pontos_atuais1
+	pontos_passados2 = pontos_atuais2
+	pontos_passados3 = pontos_atuais3
+	pontoCentralPassado = pontoCentralAtual 
+		    # Atualiza os pontos atuais (obs: colocar precisao de duas casas decimais)
+	pontos_atuais1 = ranges[50:60]
+	pontos_atuais2 = ranges[380:390]
+	pontos_atuais3 = ranges[700:710]
+        pontoCentralAtual = ranges[384]
+	pose = estimatePOSE(pontos_passados1,pontos_passados2,pontos_passados3,pontos_atuais1,pontos_atuais2,pontos_atuais3,pontoCentralPassado,pontoCentralAtual)	
+	print pose
